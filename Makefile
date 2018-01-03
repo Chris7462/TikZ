@@ -1,9 +1,10 @@
-#PAPER=FDAmissout_140104R2
-LATEX=/usr/bin/latex
-BIBLATEX=/usr/bin/bibtex
-DVIPDFMX=/usr/bin/dvipdf
+REFTEX=TikZ_ref_ex
+PDFLATEX=/usr/bin/pdflatex
+#BIBLATEX=/usr/bin/bibtex
+#DVIPDFMX=/usr/bin/dvipdf
 
 default: 
+	${PDFLATEX} ${REFTEX}.tex
 #  ${LATEX} ${PAPER}.tex
 #  ${LATEX} ${PAPER}.tex
 ####${BIBLATEX} ${PAPER}.aux
