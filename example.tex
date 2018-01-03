@@ -1,0 +1,56 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[xscale=8]
+  \draw [red, very thick] (0,0) -- (0.5,0);
+  \draw [green, very thick] (0.5,0) -- (1,0);
+  \draw [very thick] (0,-0.1) node [below] {0} -- (0,0.1);
+  \draw [very thick] (0.5,-0.1) -- (0.5,0.1);
+  \node [below] at (0.5,-0.1) {$a=b=1/2$};
+  \draw [very thick] (1,-0.1) node [below] {1} -- (1,0.1);
+\end{tikzpicture}
+
+\begin{tikzpicture}[yscale=4]
+%  \draw [help lines] (0,0) grid (1,1);
+  \draw [red, very thick] (0,0) -- (0,0.45);
+  \draw [green, very thick] (0,0.45) -- (0,1);
+  \draw [thick] (-0.1,0.2) -- (0.1, 0.2) node [align=left, right] {$q_1$ vendue \\au prix $p_1$};
+  \node [right] at (0.1,0.45) {d\`expend de $p_1$ et $p_2$};
+  \draw [thick] (-0.1,0.85) -- (0.1,0.85) node [align=left, right] {$q_2$ vendue \\auprix $p_2$};
+  \draw (-0.1,0) -- (0.1,0);
+  \draw (-0.1,1) -- (0.1,1);
+\end{tikzpicture}
+
+\begin{tikzpicture}[scale=5]
+  \draw [thick, <->] (0,1) node [left] {$V(q)$} -- (0,0) -- (1,0) node [below] {$q$};
+  \draw [very thick] (0,0) to [out=90,in=145] (0.8,0.8);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw [help lines] (0,0) grid (5,5);
+  \draw [thick,<->] (0,5) -- (0,0) -- (5,0);
+  \draw [thick] (0,4) -- (4,0);
+  \draw [dashed, ultra thick] (1.5,3.5) to [out=280,in=135] (2.5,1.5) to (2.5,1.5) to [out=315,in=160] (4.2,0.5);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \path [fill=yellow] (0,0) -- (0,5) to [out=290,in=160] (3,0.8) -- (3,0) -- (0,0);
+  \draw [<->] (0,6) node [left] {$P$} -- (0,0) node [below left] {(0,0)} -- (7,0) node [below] {$Q$};
+  \draw [ultra thick, dashed] (0,0.8) node [left] {$P^{*}=0.8$} -- (3,0.8) -- (3,0) node [below] {$Q^{*}=3$};
+  \draw [fill] (3,0.8) circle [radius=0.1];
+  \draw [thick] (0,5) to [out=290, in=160] (3,0.8) to [out=340,in=175] (6,0);
+%  \draw [<->] (5,0) node [below] {$Q$} -- (0,0) node [below left] {$(0,0)$} -- (0,5) node [left] {$P$};
+%  \draw [thick] (4,0) to [out=165,in=285] (0,4);
+\end{tikzpicture}
+
+\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
+  \draw[<->] (0,2) node [left] {EUR} -- (0,0) -- (0.7,0) node [below] {$q$};
+  \draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node [right] {$v_1(x)$};
+  \draw[green] plot (\x, {0.025+\x+\x*\x}) node [right] {$v_2(x)$};
+  \draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x});
+  \draw[thick, domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x});
+  \draw[thick, domain=0.33666:0.5] plot (\x, {0.5+\x+\x*\x}) node [right] {$2\min[v_1,v_2]$};
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{tikz}
+\begin{document}
+\begin{tikzpicture}
+    \draw[ball color=BrickRed,shading=ball] (4,1) ..controls +(120:2cm)
+        and +(90:2cm) .. (0,0) .. controls  +(-90:2cm) and +(90:3cm) ..
+        (4,-8) .. controls +(90:3cm) and +(-90:2cm) ..(8,0)  .. controls
+        +(90:2cm) and  +(60:2cm) .. (4,1);
+\end{tikzpicture}
+\end{document}

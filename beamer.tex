@@ -1,0 +1,81 @@
+\documentclass[10pt]{beamer}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{animate}
+\usepackage{tikz}
+
+\DeclareMathOperator*{\argmin}{\arg\!\min}
+\DeclareMathOperator*{\argmax}{\arg\!\max}
+
+% setup beamer theme and color
+\definecolor{msugreen}{RGB}{24,69,59}
+\mode<presentation>
+{
+  \usetheme{Madrid}
+  \usecolortheme[named=msugreen]{structure}
+  \usefonttheme[onlymath]{serif}
+}
+
+% beamer costum setting 
+\setbeamersize{text margin left=15pt}
+\setbeamersize{text margin right=15pt}
+\setbeamertemplate{items}[ball]
+\setbeamercovered{dynamic}
+%\setbeamertemplate{theorems}[numbered]
+
+% theorem setting
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\newtheorem*{con}{Conditions}
+
+% graphic path
+\graphicspath{{./Figs/}}
+
+\begin{document}
+\title[short title]{Long title}
+\author[short name]{Long name}
+\date[short date]{Long date}
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+  %\tableofcontents[pausesections]
+\end{frame}
+
+\begin{frame}
+  a few lines
+  \begin{center}
+    \begin{tikzpicture}
+      \draw [blue, ultra thick] (-1,2) -- (6,3);
+      \uncover<1>{\draw [green, thick] (-4,3) -- (2,2.5);}
+      \uncover<2>{\draw [red, thick] (0,0) -- (0,5);}
+    \end{tikzpicture}
+  \end{center}
+  and somthing under.
+\end{frame}
+
+\begin{frame}
+  a few lines
+  \begin{center}
+    \begin{tikzpicture}
+      \draw [blue, ultra thick] (-1,2) -- (6,3);
+      \only<1>{\draw [green, thick] (-4,3) -- (2,2.5);}
+      \only<2>{\draw [red, thick] (0,0) -- (0,5);}
+    \end{tikzpicture}
+  \end{center}
+  and somthing under.
+\end{frame}
+
+\end{document}
