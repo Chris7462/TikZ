@@ -13,4 +13,4 @@ default:
 #  ${DVIPDFMX} ${PAPER}.dvi
 
 clean:
-	rm -f *.aux *.log *.nav *.out *.snm *.toc 
+	rm -f *.aux *.log *.nav *.out *.snm *.toc *.dvi
