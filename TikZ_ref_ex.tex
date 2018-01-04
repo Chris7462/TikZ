@@ -39,7 +39,7 @@ Example:
   \draw (0,0) circle (2pt);
   \draw[red] (1,0) circle (3pt);
   \draw[fill=red] (2,0) circle (4pt);
-  \draw[red,fill=red] (3,0) circle (5pt);
+  \draw[red,fill=red] (3,0) ellipse (10pt and 5pt);
   \filldraw[blue,rotate=30] (3.5,-2) ellipse (10pt and 5pt);
 \end{verbatim}
 
@@ -47,7 +47,7 @@ Example:
   \draw (0,0) circle (2pt);
   \draw[red] (1,0) circle (3pt);
   \draw[fill=red] (2,0) circle (4pt);
-  \draw[red,fill=red] (3,0) circle (5pt);
+  \draw[red,fill=red] (3,0) ellipse (10pt and 5pt);
   \filldraw[blue,rotate=30] (3.5,-2) ellipse (10pt and 5pt);
 \end{tikzpicture}
 
@@ -184,5 +184,54 @@ Example:
   \draw[step=0.5cm, para_color] (0,0) grid (2,2);
   \draw[step=0.5cm, para_color=red] (2,0) grid (4,2);
 \end{tikzpicture}
+
+\subsection{Drawing Options}
+\begin{itemize}
+  \item color: 
+    blue \tikz \filldraw[blue] (0,0) rectangle (1.5em,1.5ex);, 
+    black \tikz \filldraw[black] (0,0) rectangle (1.5em,1.5ex);, 
+    brown \tikz \filldraw[brown] (0,0) rectangle (1.5em,1.5ex);, 
+    cyan \tikz \filldraw[cyan] (0,0) rectangle (1.5em,1.5ex);, 
+    gray \tikz \filldraw[gray] (0,0) rectangle (1.5em,1.5ex);, 
+    green \tikz \filldraw[green] (0,0) rectangle (1.5em,1.5ex);, 
+    lightgray \tikz \filldraw[lightgray] (0,0) rectangle (1.5em,1.5ex);, 
+    lime \tikz \filldraw[lime] (0,0) rectangle (1.5em,1.5ex);, 
+    magenta \tikz \filldraw[magenta] (0,0) rectangle (1.5em,1.5ex);, 
+    orange \tikz \filldraw[orange] (0,0) rectangle (1.5em,1.5ex);, 
+    pink \tikz \filldraw[pink] (0,0) rectangle (1.5em,1.5ex);, 
+    purple \tikz \filldraw[purple] (0,0) rectangle (1.5em,1.5ex);, 
+    red \tikz \filldraw[red] (0,0) rectangle (1.5em,1.5ex);, 
+    yellow \tikz \filldraw[yellow] (0,0) rectangle (1.5em,1.5ex);, 
+    teal \tikz \filldraw[teal] (0,0) rectangle (1.5em,1.5ex);, 
+    violet \tikz \filldraw[violet] (0,0) rectangle (1.5em,1.5ex);, 
+    white \tikz \draw[fill=white] (0,0) rectangle (1.5em,1.5ex);.
+  \item thickness: 
+    ultra thin \tikz \draw[ultra thin] (0,0) -- (1em,0);, 
+    very thin \tikz \draw[very thin] (0,0) -- (1em,0);, 
+    thin \tikz \draw[thin] (0,0) -- (1em,0);, 
+    semithick \tikz \draw[semithick] (0,0) -- (1em,0);, 
+    thick \tikz \draw[thick] (0,0) -- (1em,0);, 
+    very thick \tikz \draw[very thick] (0,0) -- (1em,0);, 
+    ultra thick \tikz \draw[ultra thick] (0,0) -- (1em,0);.
+
+\begin{verbatim}
+Usage:
+  \draw[color] (x1,y1) -- (x2,y2);
+
+Example:
+  \draw[blue] (0,1) -- (2,1);
+\end{verbatim}
+
+\begin{tikzpicture}
+  \draw[blue] (0,1) -- (2,1);
+\end{tikzpicture}
+%\begin{tikzpicture}
+%  \draw[yellow, line width=10pt] (0,0) -- (0.5,0);
+%  \draw (0.1,0.5pt) -- (0.4,0.5pt);
+%\end{tikzpicture}
+\end{itemize}
+
+  % ultra thin; very thin; thin; semithick; thick; very thick; ultra thick; help lines
+
 
 \end{document}
