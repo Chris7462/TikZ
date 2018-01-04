@@ -33,7 +33,7 @@ Example:
 \begin{verbatim}
 Usage:
   \draw[options] (x,y) circle (raidus);
-  \draw[options] (x,y) ellipse (raidus1 and radius2);
+  \draw[options] (x,y) ellipse (x.raidus anda y.radius);
 
 Example:
   \draw (0,0) circle (2pt);
@@ -110,6 +110,80 @@ Example:
   \draw[step=2pt] (0,0) grid (10pt,10pt);
 \end{tikzpicture}
 
+\subsection{Arc Path Construction}
+\begin{verbatim}
+Usage:
+  \draw (x,y) arc (angle1:angle2:radius)
+  \draw (x,y) arc (angle1:angle2:x.radius and y.radius)
+
+Example:
+  \draw (-1.5,0) -- (1.5,0);
+  \draw (0,-1.5) -- (0,1.5);
+  \draw (0.5,0) arc (0:120:0.5cm);
+  \draw (1,0) arc (0:315:1.75cm and 1cm);
+\end{verbatim}
+
+\begin{tikzpicture}
+  \draw (-1.5,0) -- (1.5,0);
+  \draw (0,-1.5) -- (0,1.5);
+  \draw (0.5,0) arc (0:120:0.5cm);
+  \draw (1,0) arc (0:315:1.75cm and 1cm);
+\end{tikzpicture}
+
+\subsection{Drawing Options}
+There are some drawing options that one can use to control the color, thickness, and line type.
+\begin{itemize}
+  \item color: 
+    blue \tikz \filldraw[blue] (0,0) rectangle (1.5em,1.5ex);, 
+    black \tikz \filldraw[black] (0,0) rectangle (1.5em,1.5ex);, 
+    brown \tikz \filldraw[brown] (0,0) rectangle (1.5em,1.5ex);, 
+    cyan \tikz \filldraw[cyan] (0,0) rectangle (1.5em,1.5ex);, 
+    gray \tikz \filldraw[gray] (0,0) rectangle (1.5em,1.5ex);, 
+    green \tikz \filldraw[green] (0,0) rectangle (1.5em,1.5ex);, 
+    lightgray \tikz \filldraw[lightgray] (0,0) rectangle (1.5em,1.5ex);, 
+    lime \tikz \filldraw[lime] (0,0) rectangle (1.5em,1.5ex);, 
+    magenta \tikz \filldraw[magenta] (0,0) rectangle (1.5em,1.5ex);, 
+    orange \tikz \filldraw[orange] (0,0) rectangle (1.5em,1.5ex);, 
+    pink \tikz \filldraw[pink] (0,0) rectangle (1.5em,1.5ex);, 
+    purple \tikz \filldraw[purple] (0,0) rectangle (1.5em,1.5ex);, 
+    red \tikz \filldraw[red] (0,0) rectangle (1.5em,1.5ex);, 
+    yellow \tikz \filldraw[yellow] (0,0) rectangle (1.5em,1.5ex);, 
+    teal \tikz \filldraw[teal] (0,0) rectangle (1.5em,1.5ex);, 
+    violet \tikz \filldraw[violet] (0,0) rectangle (1.5em,1.5ex);, 
+    white \tikz \draw[fill=white] (0,0) rectangle (1.5em,1.5ex);.
+  \item thickness: 
+    ultra thin \tikz \draw[ultra thin] (0,0) -- (1em,0);, 
+    very thin \tikz \draw[very thin] (0,0) -- (1em,0);, 
+    thin \tikz \draw[thin] (0,0) -- (1em,0);, 
+    semithick \tikz \draw[semithick] (0,0) -- (1em,0);, 
+    thick \tikz \draw[thick] (0,0) -- (1em,0);, 
+    very thick \tikz \draw[very thick] (0,0) -- (1em,0);, 
+    ultra thick \tikz \draw[ultra thick] (0,0) -- (1em,0);.
+  \item line type: 
+    loosely dashed \tikz \draw[loosely dashed] (0,0) -- (0.5,0);,
+    dashed \tikz \draw[dashed] (0,0) -- (0.5,0);,
+    densely dashed \tikz \draw[densely dashed] (0,0) -- (0.5,0);,
+    loosely dotted \tikz \draw[loosely dotted] (0,0) -- (0.5,0);,
+    dotted \tikz \draw[dotted] (0,0) -- (0.5,0);,
+    densely dotted \tikz \draw[densely dotted] (0,0) -- (0.5,0);.
+\end{itemize}
+
+\begin{verbatim}
+Usage:
+  \draw[color, thickness, line type] (x1,y1) -- (x2,y2);
+
+Example:
+  \draw[red, very thin, densely dashed] (0,0) -- (0.9,0);
+  \draw[blue, ultra thick, loosely dotted] (1.1,0) -- (2,0);
+  \draw[green, semithick] (2.1,0) -- (2.9,0);
+\end{verbatim}
+
+\begin{tikzpicture}
+  \draw[red, very thin, densely dashed] (0,0) -- (0.9,0);
+  \draw[blue, ultra thick, loosely dotted] (1.1,0) -- (1.9,0);
+  \draw[green, semithick] (2.1,0) -- (2.9,0);
+\end{tikzpicture}
+
 \subsection{Adding a Touch Style}
 \noindent 
 \textsf{Styles} are predefined sets of options that can be used to organize how a graphic is drawn. To define a style globally, we can use the \textbackslash tikzset command at the beginning of the document.
@@ -158,13 +232,11 @@ Example:
   \end{tikzpicture}
 \end{verbatim}
 
-\tikzset{green_help_lines/.style={help lines, color=green!90}}
+\tikzset{green_help_lines/.style={help lines, color=green!90, ultra thick}}
 \begin{tikzpicture}
-  \draw[step=0.5cm, green_help_lines] (0,0) grid (2,2);
+  \draw[step=0.5cm, help lines] (0,0) grid (2,2);
+  \draw[step=0.5cm, green_help_lines] (2,0) grid (4,2);
 \end{tikzpicture}\\
-
-\clearpage
-\newpage
 
 \noindent Styles can also be used with a parameter.
 \begin{verbatim}
@@ -184,54 +256,5 @@ Example:
   \draw[step=0.5cm, para_color] (0,0) grid (2,2);
   \draw[step=0.5cm, para_color=red] (2,0) grid (4,2);
 \end{tikzpicture}
-
-\subsection{Drawing Options}
-\begin{itemize}
-  \item color: 
-    blue \tikz \filldraw[blue] (0,0) rectangle (1.5em,1.5ex);, 
-    black \tikz \filldraw[black] (0,0) rectangle (1.5em,1.5ex);, 
-    brown \tikz \filldraw[brown] (0,0) rectangle (1.5em,1.5ex);, 
-    cyan \tikz \filldraw[cyan] (0,0) rectangle (1.5em,1.5ex);, 
-    gray \tikz \filldraw[gray] (0,0) rectangle (1.5em,1.5ex);, 
-    green \tikz \filldraw[green] (0,0) rectangle (1.5em,1.5ex);, 
-    lightgray \tikz \filldraw[lightgray] (0,0) rectangle (1.5em,1.5ex);, 
-    lime \tikz \filldraw[lime] (0,0) rectangle (1.5em,1.5ex);, 
-    magenta \tikz \filldraw[magenta] (0,0) rectangle (1.5em,1.5ex);, 
-    orange \tikz \filldraw[orange] (0,0) rectangle (1.5em,1.5ex);, 
-    pink \tikz \filldraw[pink] (0,0) rectangle (1.5em,1.5ex);, 
-    purple \tikz \filldraw[purple] (0,0) rectangle (1.5em,1.5ex);, 
-    red \tikz \filldraw[red] (0,0) rectangle (1.5em,1.5ex);, 
-    yellow \tikz \filldraw[yellow] (0,0) rectangle (1.5em,1.5ex);, 
-    teal \tikz \filldraw[teal] (0,0) rectangle (1.5em,1.5ex);, 
-    violet \tikz \filldraw[violet] (0,0) rectangle (1.5em,1.5ex);, 
-    white \tikz \draw[fill=white] (0,0) rectangle (1.5em,1.5ex);.
-  \item thickness: 
-    ultra thin \tikz \draw[ultra thin] (0,0) -- (1em,0);, 
-    very thin \tikz \draw[very thin] (0,0) -- (1em,0);, 
-    thin \tikz \draw[thin] (0,0) -- (1em,0);, 
-    semithick \tikz \draw[semithick] (0,0) -- (1em,0);, 
-    thick \tikz \draw[thick] (0,0) -- (1em,0);, 
-    very thick \tikz \draw[very thick] (0,0) -- (1em,0);, 
-    ultra thick \tikz \draw[ultra thick] (0,0) -- (1em,0);.
-
-\begin{verbatim}
-Usage:
-  \draw[color] (x1,y1) -- (x2,y2);
-
-Example:
-  \draw[blue] (0,1) -- (2,1);
-\end{verbatim}
-
-\begin{tikzpicture}
-  \draw[blue] (0,1) -- (2,1);
-\end{tikzpicture}
-%\begin{tikzpicture}
-%  \draw[yellow, line width=10pt] (0,0) -- (0.5,0);
-%  \draw (0.1,0.5pt) -- (0.4,0.5pt);
-%\end{tikzpicture}
-\end{itemize}
-
-  % ultra thin; very thin; thin; semithick; thick; very thick; ultra thick; help lines
-
 
 \end{document}
