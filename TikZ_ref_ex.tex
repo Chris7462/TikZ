@@ -17,9 +17,7 @@ The TikZ commands can be inside the environment \textbackslash begin\{tikzpictur
 \begin{verbatim}
 Useage:
   \draw[options] (x1,y1) -- (x2,y2) -- (x3,y3);
-\end{verbatim}
 
-\begin{verbatim}
 Example:
   \draw (-1.5,0) -- (1.5,0) -- (0,-1.5) -- (0,1.5);
   \draw[thick, rounded corners=10pt] 
@@ -36,9 +34,7 @@ Example:
 Usage:
   \draw[options] (x,y) circle (raidus);
   \draw[options] (x,y) ellipse (raidus1 and radius2);
-\end{verbatim}
 
-\begin{verbatim}
 Example:
   \draw (0,0) circle (2pt);
   \draw[red] (1,0) circle (3pt);
@@ -59,9 +55,7 @@ Example:
 \begin{verbatim}
 Usage:
   \draw[options] (x1,y1) .. controls (x2,y2) and (x3,y3) .. (x4,y4)
-\end{verbatim}
 
-\begin{verbatim}
 Example:
   \filldraw[gray] (0,0) circle (2pt) (1,1) circle (2pt)
                   (2,1) circle (2pt) (2,0) circle (2pt);
@@ -80,9 +74,7 @@ Example:
 \begin{verbatim}
 Usage:
   \draw[options] (x1,y1) rectangle (x2,y2);
-\end{verbatim}
 
-\begin{verbatim}
 Example:
   \draw (-1.5,0) -- (1.5,0);
   \draw (0,-1.5) -- (0,1.5);
@@ -93,6 +85,104 @@ Example:
   \draw (-1.5,0) -- (1.5,0);
   \draw (0,-1.5) -- (0,1.5);
   \draw[rotate=30, fill=red] (-0.5,-0.5) rectangle (0.5,0.5);
+\end{tikzpicture}
+
+\subsection{Grid Path Construction}
+\begin{verbatim}
+Usage:
+  \draw[options] (x1,y1) grid (x2,y2); 
+\end{verbatim}
+
+\begin{verbatim}
+Example:
+  \draw[step=.5cm, gray, very thin] (-1.4,-1.4) grid (1.4,1.4);
+  \draw (-1.5,0) -- (1.5,0);
+  \draw (0,-1.5) -- (0,1.5);
+  \draw (0,0) circle (1cm);
+  \draw[step=2pt] (0,0) grid (10pt,10pt);
+\end{verbatim}
+
+\begin{tikzpicture}
+	\draw[step=.5cm, gray, very thin] (-1.4,-1.4) grid (1.4,1.4);
+	\draw (-1.5,0) -- (1.5,0);
+	\draw (0,-1.5) -- (0,1.5);
+	\draw (0,0) circle (1cm);
+  \draw[step=2pt] (0,0) grid (10pt,10pt);
+\end{tikzpicture}
+
+\subsection{Adding a Touch Style}
+\noindent 
+\textsf{Styles} are predefined sets of options that can be used to organize how a graphic is drawn. To define a style globally, we can use the \textbackslash tikzset command at the beginning of the document.
+\begin{verbatim}
+Usage:
+  \tikzset{style_name./style={options}}
+
+Example:
+  \tikzset{blue_thin_lines/.style={color=blue!50,very thin}}
+  \begin{tikzpicture}
+    \draw[blue_thin_lines] (0,0) grid (5,5);
+  \end{tikzpicture}
+\end{verbatim}
+
+\tikzset{blue_thin_lines/.style={color=blue!50,very thin}}
+\begin{tikzpicture}
+	\draw[step=0.5cm, blue_thin_lines] (0,0) grid (2,2);
+\end{tikzpicture}\\
+
+\noindent To define a style locally, we use a pair of square bracket ``[ ]'' to define styles at the beginning of a picture.
+\begin{verbatim}
+Usage:
+  [style_name/.style={options}]
+
+Example:
+  \begin{tikzpicture}
+    [red_thick_lines/.style={color=red!50,very thick}]
+    \draw[step=0.5cm, red_thick_lines] (0,0) grid (2,2);
+  \end{tikzpicture}
+\end{verbatim}
+
+\begin{tikzpicture}
+	[red_thick_lines/.style={color=red!50,very thick}]
+	\draw[step=0.5cm, red_thick_lines] (0,0) grid (2,2);
+\end{tikzpicture}\\
+
+\noindent One can also define styles hierarchically.
+\begin{verbatim}
+Usage:
+  \tikzset{style_name1/.style={style_name2, options}}
+
+Example:
+  \tikzset{green_help_lines/.style={help lines, color=green!90}}
+  \begin{tikzpicture}
+    \draw[step=0.5cm, green_help_lines] (0,0) grid (5,5);
+  \end{tikzpicture}
+\end{verbatim}
+
+\tikzset{green_help_lines/.style={help lines, color=green!90}}
+\begin{tikzpicture}
+  \draw[step=0.5cm, green_help_lines] (0,0) grid (2,2);
+\end{tikzpicture}\\
+
+\clearpage
+\newpage
+
+\noindent Styles can also be used with a parameter.
+\begin{verbatim}
+Usage:
+  [style_name/.style={options}, style_name/.default={options}]
+
+Example:
+  \begin{tikzpicture}
+    [para_color/.style={help lines,color=#1!50}, para_color/.default=blue]
+    \draw[step=0.5cm, para_color] (0,0) grid (2,2);
+    \draw[step=0.5cm, para_color=red] (2,0) grid (4,2);
+  \end{tikzpicture}
+\end{verbatim}
+
+\begin{tikzpicture}
+  [para_color/.style={help lines,color=#1!50}, para_color/.default=blue]
+  \draw[step=0.5cm, para_color] (0,0) grid (2,2);
+  \draw[step=0.5cm, para_color=red] (2,0) grid (4,2);
 \end{tikzpicture}
 
 \end{document}
