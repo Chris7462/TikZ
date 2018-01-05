@@ -144,7 +144,8 @@ There are some drawing options that one can use to control the color, thickness,
     yellow \tikz \filldraw[yellow] (0,0) rectangle (1.5em,1.5ex);, 
     teal \tikz \filldraw[teal] (0,0) rectangle (1.5em,1.5ex);, 
     violet \tikz \filldraw[violet] (0,0) rectangle (1.5em,1.5ex);, 
-    white \tikz \draw[fill=white] (0,0) rectangle (1.5em,1.5ex);.
+    white \tikz \draw[fill=white] (0,0) rectangle (1.5em,1.5ex);.\\
+    Note: Colors can also be mixed. The color \verb|[blue!40!white]| means $40\%$ blue and $60\%$ white mixed together.
   \item thickness: 
     ultra thin \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[ultra thin] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
     very thin \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[very thin] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
@@ -152,7 +153,8 @@ There are some drawing options that one can use to control the color, thickness,
     semithick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[semithick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
     thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
     very thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[very thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
-    ultra thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[ultra thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.
+    ultra thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[ultra thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.\\
+    Note: \verb![help lines]=[gray,very thin]!. Line thickness can be also specified by\\ \verb![line width]! option, say \verb![line width=0.5cm]!.
   \item line type: 
     loosely dashed \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[loosely dashed] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
     dashed \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[dashed] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
@@ -161,19 +163,18 @@ There are some drawing options that one can use to control the color, thickness,
     dotted \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[dotted] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
     densely dotted \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[densely dotted] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.
   \item arrow: 
-    \verb <- ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<-] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb <<- ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<-] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb <-| ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<-|] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb <<-| ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<-|] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb -> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb ->> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb |-> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[|->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb |->> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[|->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb <-> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb <<->> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
-    \verb >=stealth ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->>,>=stealth] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.
+    \verb!<-! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<-] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!<<-! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<-] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!<-|! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<-|] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!<<-|! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<-|] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!->! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!->>! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!|->! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[|->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!|->>! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[|->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!<->! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb!<<->>! \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.\\
+    Note: You can also add \verb!>=stealth! in the options, which changes the arrow to 'stealth-like' style.
 \end{itemize}
-\noindent Note: \verb [help ~\verb lines]=[gray,very ~\verb thin] . Line thickness can be also specified by `line width' option, say \verb [line ~\verb width=0.5cm] .
 
 \begin{verbatim}
 Usage:
