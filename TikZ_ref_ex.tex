@@ -2,13 +2,19 @@
 \usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 \usepackage{tikz}
 
-
-\title{Ti$k$Z commends tutorial}
-\date{\today}
-\author{Yi-Chen Zhang}
+%\title{Ti$k$Z reference}
+%\author{Yi-Chen Zhang}
+%\date{\today}
 
 \begin{document}
-\maketitle
+\begin{center}
+	\textbf{\Large Ti$k$Z reference}\\
+	\bigskip
+	Yi-Chen Zhang\\
+	\smallskip
+	\today
+\end{center}
+
 The Ti$k$Z commands can be inside the environment \textbackslash begin\{tikzpicture\} \ldots \textbackslash end\{tikzpicture\} or simply use \textbackslash tikz clause. We run \textsf{pdflatex} or \textsf{latex} followed by \textsf{dvips} to execute the Ti$k$Z commends. 
 
 \section{Preliminary}
@@ -19,9 +25,11 @@ Useage:
   \draw[options] (x1,y1) -- (x2,y2) -- (x3,y3);
 
 Example:
-  \draw (-1.5,0) -- (1.5,0) -- (0,-1.5) -- (0,1.5);
-  \draw[thick, rounded corners=10pt] 
-    (0,0) -- (0,2) -- (1,3.25) -- (2,2) -- (2,0) -- (0,2) -- (2,2) -- (0,0) -- (2,0);
+  \begin{tikzpicture}
+    \draw (-1.5,0) -- (1.5,0) -- (0,-1.5) -- (0,1.5);
+    \draw[thick, rounded corners=10pt] (0,0) -- (0,2) -- (1,3.25) -- 
+    (2,2) -- (2,0) -- (0,2) -- (2,2) -- (0,0) -- (2,0);
+  \end{tikzpicture}
 \end{verbatim}
 
 \tikz \draw (-1.5,0) -- (1.5,0) -- (0,-1.5) -- (0,1.5);
@@ -36,11 +44,13 @@ Usage:
   \draw[options] (x,y) ellipse (x.raidus anda y.radius);
 
 Example:
-  \draw (0,0) circle (2pt);
-  \draw[red] (1,0) circle (3pt);
-  \draw[fill=red] (2,0) circle (4pt);
-  \draw[red,fill=red] (3,0) ellipse (10pt and 5pt);
-  \filldraw[blue,rotate=30] (3.5,-2) ellipse (10pt and 5pt);
+  \begin{tikzpicture}
+    \draw (0,0) circle (2pt);
+    \draw[red] (1,0) circle (3pt);
+    \draw[fill=red] (2,0) circle (4pt);
+    \draw[red,fill=red] (3,0) ellipse (10pt and 5pt);
+    \filldraw[blue,rotate=30] (3.5,-2) ellipse (10pt and 5pt); % another way
+  \end{tikzpicture}
 \end{verbatim}
 
 \begin{tikzpicture}
@@ -54,19 +64,19 @@ Example:
 \subsection{Curved Path Construction}
 \begin{verbatim}
 Usage:
-  \draw[options] (x1,y1) .. controls (x2,y2) and (x3,y3) .. (x4,y4)
+  \draw[options] (x1,y1) .. controls (x2,y2) and (x3,y3) .. (x4,y4);
 
 Example:
-  \filldraw[gray] (0,0) circle (2pt) (1,1) circle (2pt)
-                  (2,1) circle (2pt) (2,0) circle (2pt);
-  \draw (0,0) .. controls (1,1) and (2,1) .. (2,0);
+  \begin{tikzpicture}
+    \filldraw[gray] (0,0) circle (2pt) (1,1) circle (2pt)
+                    (2,1) circle (2pt) (2,0) circle (2pt);
+    \draw (0,0) .. controls (1,1) and (2,1) .. (2,0);
+  \end{tikzpicture}
 \end{verbatim}
 
 \begin{tikzpicture}
-  \filldraw[gray] (0,0) circle (2pt)
-                  (1,1) circle (2pt)
-                  (2,1) circle (2pt)
-                  (2,0) circle (2pt);
+  \filldraw[gray] (0,0) circle (2pt) (1,1) circle (2pt)
+                  (2,1) circle (2pt) (2,0) circle (2pt);
   \draw (0,0) .. controls (1,1) and (2,1) .. (2,0);
 \end{tikzpicture}
 
@@ -76,9 +86,11 @@ Usage:
   \draw[options] (x1,y1) rectangle (x2,y2);
 
 Example:
-  \draw (-1.5,0) -- (1.5,0);
-  \draw (0,-1.5) -- (0,1.5);
-  \draw[rotate=30, fill=red] (-0.5,-0.5) rectangle (-1,-1);
+  \begin{tikzpicture}
+    \draw (-1.5,0) -- (1.5,0);
+    \draw (0,-1.5) -- (0,1.5);
+    \draw[rotate=30, fill=red] (-0.5,-0.5) rectangle (-1,-1);
+  \end{tikzpicture}
 \end{verbatim}
 
 \begin{tikzpicture}
@@ -95,11 +107,13 @@ Usage:
 
 \begin{verbatim}
 Example:
-  \draw[step=.5cm, gray, very thin] (-1.4,-1.4) grid (1.4,1.4);
-  \draw (-1.5,0) -- (1.5,0);
-  \draw (0,-1.5) -- (0,1.5);
-  \draw (0,0) circle (1cm);
-  \draw[step=2pt] (0,0) grid (10pt,10pt);
+  \begin{tikzpicture}
+    \draw[step=.5cm, gray, very thin] (-1.4,-1.4) grid (1.4,1.4);
+    \draw (-1.5,0) -- (1.5,0);
+    \draw (0,-1.5) -- (0,1.5);
+    \draw (0,0) circle (1cm);
+    \draw[step=2pt] (0,0) grid (10pt,10pt);
+  \end{tikzpicture}
 \end{verbatim}
 
 \begin{tikzpicture}
@@ -113,14 +127,19 @@ Example:
 \subsection{Arc Path Construction}
 \begin{verbatim}
 Usage:
-  \draw (x,y) arc (angle1:angle2:radius)
-  \draw (x,y) arc (angle1:angle2:x.radius and y.radius)
+  \draw (x,y) arc (angle1:angle2:radius);
+  \draw[start angle=angle1, end angle=angle2, radius=radius] (x,y) arc;
+  \draw (x,y) arc (angle1:angle2:x.radius and y.radius);
 
 Example:
-  \draw (-1.5,0) -- (1.5,0);
-  \draw (0,-1.5) -- (0,1.5);
-  \draw (0.5,0) arc (0:120:0.5cm);
-  \draw (1,0) arc (0:315:1.75cm and 1cm);
+  \begin{tikzpicture}
+    \draw (-1.5,0) -- (1.5,0);
+    \draw (0,-1.5) -- (0,1.5);
+    \draw (0.5,0) arc (0:120:0.5cm);
+    \draw (1,0) arc (0:315:1.75cm and 1cm);
+    \draw[start angle=180, end angle=120, radius=0.5cm] (-1,0) arc; 
+    % The above is not a recommand way.
+  \end{tikzpicture}
 \end{verbatim}
 
 \begin{tikzpicture}
@@ -128,6 +147,7 @@ Example:
   \draw (0,-1.5) -- (0,1.5);
   \draw (0.5,0) arc (0:120:0.5cm);
   \draw (1,0) arc (0:315:1.75cm and 1cm);
+  \draw[start angle=180, end angle=120, radius=0.5cm] (-1,0) arc; 
 \end{tikzpicture}
 
 \subsection{Drawing Options}
@@ -152,36 +172,53 @@ There are some drawing options that one can use to control the color, thickness,
     violet \tikz \filldraw[violet] (0,0) rectangle (1.5em,1.5ex);, 
     white \tikz \draw[fill=white] (0,0) rectangle (1.5em,1.5ex);.
   \item thickness: 
-    ultra thin \tikz \draw[ultra thin] (0,0) -- (1em,0);, 
-    very thin \tikz \draw[very thin] (0,0) -- (1em,0);, 
-    thin \tikz \draw[thin] (0,0) -- (1em,0);, 
-    semithick \tikz \draw[semithick] (0,0) -- (1em,0);, 
-    thick \tikz \draw[thick] (0,0) -- (1em,0);, 
-    very thick \tikz \draw[very thick] (0,0) -- (1em,0);, 
-    ultra thick \tikz \draw[ultra thick] (0,0) -- (1em,0);.
+    ultra thin \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[ultra thin] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
+    very thin \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[very thin] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
+    thin \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[thin] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
+    semithick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[semithick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
+    thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
+    very thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[very thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}, 
+    ultra thick \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[ultra thick] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.
   \item line type: 
-    loosely dashed \tikz \draw[loosely dashed] (0,0) -- (0.5,0);,
-    dashed \tikz \draw[dashed] (0,0) -- (0.5,0);,
-    densely dashed \tikz \draw[densely dashed] (0,0) -- (0.5,0);,
-    loosely dotted \tikz \draw[loosely dotted] (0,0) -- (0.5,0);,
-    dotted \tikz \draw[dotted] (0,0) -- (0.5,0);,
-    densely dotted \tikz \draw[densely dotted] (0,0) -- (0.5,0);.
+    loosely dashed \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[loosely dashed] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    dashed \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[dashed] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    densely dashed \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[densely dashed] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    loosely dotted \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[loosely dotted] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    dotted \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[dotted] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    densely dotted \begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[densely dotted] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.
+  \item arrow: 
+    \verb <- ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<-] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb <<- ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<-] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb <-| ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<-|] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb <<-| ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<-|] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb -> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb ->> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb |-> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[|->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb |->> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[|->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb <-> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<->] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb <<->> ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[<<->>] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture},
+    \verb >=stealth ~\begin{tikzpicture} \filldraw[white] (0,0) rectangle (1em,1.5ex); \draw[->>,>=stealth] (0,0.7ex) -- (1em,0.7ex);\end{tikzpicture}.
 \end{itemize}
+\noindent Note: \verb [help ~\verb lines]=[gray,very ~\verb thin] . Line thickness can be also specified by `line width' option, say \verb [line ~\verb width=0.5cm] .
 
 \begin{verbatim}
 Usage:
-  \draw[color, thickness, line type] (x1,y1) -- (x2,y2);
+  \draw[color, thickness, line type, arrow] (x1,y1) -- (x2,y2);
 
 Example:
-  \draw[red, very thin, densely dashed] (0,0) -- (0.9,0);
-  \draw[blue, ultra thick, loosely dotted] (1.1,0) -- (2,0);
-  \draw[green, semithick] (2.1,0) -- (2.9,0);
+  \begin{tikzpicture}
+    \draw[red, very thin, densely dashed, <-] (0,0) -- (0.9,0);
+    \draw[green, ultra thick, loosely dotted, |->] (1.1,0) -- (1.9,0);
+    \draw[blue, semithick, <->, >=stealth] (2.1,0) -- (2.9,0);
+    \draw[purple, line width=0.3cm] (3.1,0) -- (3.9,0);
+  \end{tikzpicture}
 \end{verbatim}
 
 \begin{tikzpicture}
-  \draw[red, very thin, densely dashed] (0,0) -- (0.9,0);
-  \draw[blue, ultra thick, loosely dotted] (1.1,0) -- (1.9,0);
-  \draw[green, semithick] (2.1,0) -- (2.9,0);
+  \draw[red, very thin, densely dashed, <-] (0,0) -- (0.9,0);
+  \draw[green, ultra thick, loosely dotted, |->] (1.1,0) -- (1.9,0);
+  \draw[blue, semithick, <->, >=stealth] (2.1,0) -- (2.9,0);
+  \draw[purple, line width=0.3cm] (3.1,0) -- (3.9,0);
 \end{tikzpicture}
 
 \subsection{Adding a Touch Style}
@@ -210,7 +247,7 @@ Usage:
 
 Example:
   \begin{tikzpicture}
-    [red_thick_lines/.style={color=red!50,very thick}]
+    [red_thick_lines/.style={color=red!50,very thick}];
     \draw[step=0.5cm, red_thick_lines] (0,0) grid (2,2);
   \end{tikzpicture}
 \end{verbatim}
@@ -255,6 +292,56 @@ Example:
   [para_color/.style={help lines,color=#1!50}, para_color/.default=blue]
   \draw[step=0.5cm, para_color] (0,0) grid (2,2);
   \draw[step=0.5cm, para_color=red] (2,0) grid (4,2);
+\end{tikzpicture}
+
+\subsection{Clipping a Path}
+\noindent The \textbackslash clip command clip all subsequent drawing.
+\begin{verbatim}
+Usage:
+  \clip (x1,y1) rectangle (x2,y2);
+
+Example:
+  \begin{tikzpicture}[scale=3]
+    \clip (-0.1,-0.2) rectangle (1.1,0.75);
+    \draw[step=.5cm, help lines] (-1.4,-1.4) grid (1.4,1.4);
+    \draw (-1.5,0) -- (1.5,0);
+    \draw (0,-1.5) -- (0,1.5);
+    \draw (0,0) circle (1cm);
+    \draw (3mm,0mm) arc (0:30:3mm);
+  \end{tikzpicture}[scale=3]
+\end{verbatim}
+
+\begin{tikzpicture}[scale=3]
+	\clip (-0.1,-0.2) rectangle (1.1,0.75);
+	\draw[step=.5cm, help lines] (-1.4,-1.4) grid (1.4,1.4);
+	\draw (-1.5,0) -- (1.5,0);
+	\draw (0,-1.5) -- (0,1.5);
+	\draw (0,0) circle (1cm);
+	\draw (3mm,0mm) arc (0:30:3mm);
+\end{tikzpicture}
+
+\begin{verbatim}
+Usage:
+  \clip (x1,y1) circle (radius);
+
+Example:
+  \begin{tikzpicture}[scale=3]
+    \clip[draw] (0.5,0.5) circle (.6cm);
+    \draw[step=.5cm, help lines] (-1.4,-1.4) grid (1.4,1.4);
+    \draw (-1.5,0) -- (1.5,0);
+    \draw (0,-1.5) -- (0,1.5);
+    \draw (0,0) circle (1cm);
+    \draw (3mm,0mm) arc (0:30:3mm);
+  \end{tikzpicture}
+\end{verbatim}
+
+\begin{tikzpicture}[scale=3]
+  \clip[draw] (0.5,0.5) circle (.6cm);
+  \draw[step=.5cm, help lines] (-1.4,-1.4) grid (1.4,1.4);
+  \draw (-1.5,0) -- (1.5,0);
+  \draw (0,-1.5) -- (0,1.5);
+  \draw (0,0) circle (1cm);
+  \draw (3mm,0mm) arc (0:30:3mm);
 \end{tikzpicture}
 
 \end{document}
