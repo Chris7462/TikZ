@@ -1,4 +1,4 @@
-REFTEX=TikZ_ref_ex
+REFTEX=TikZ
 PDFLATEX=/usr/bin/pdflatex
 #BIBLATEX=/usr/bin/bibtex
 #DVIPDFMX=/usr/bin/dvipdf
