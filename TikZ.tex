@@ -421,5 +421,11 @@ Example:
 
 \subsection{Shading}
 
-\subsection{Doraemon}
+
+\subsection{Nodes}
+\begin{tikzpicture}
+	\draw (0,0) node(a) [draw,align=center] {This is a test\\$a$ node} (1,1) node(b) [draw] {B};
+	\draw (a.north) |- (b.west);
+	\draw[color=red] (a.east) -| (2,1.5) -| (b.north);
+\end{tikzpicture}
 \end{document}
