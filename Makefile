@@ -1,5 +1,4 @@
 REFTEX=TikZ
-DORA=Doraemon
 PDFLATEX=/usr/bin/pdflatex
 #BIBLATEX=/usr/bin/bibtex
 #DVIPDFMX=/usr/bin/dvipdf
@@ -13,9 +12,6 @@ default:
 ####${LATEX} ${PAPER}.tex
 ####${LATEX} ${PAPER}.tex
 #  ${DVIPDFMX} ${PAPER}.dvi
-
-dora:
-	${PDFLATEX} ${DORA}.tex
 
 clean:
 	rm -f *.aux *.log *.nav *.out *.snm *.toc *.dvi
