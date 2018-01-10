@@ -558,6 +558,68 @@ Example:
 \end{tikzpicture}
 
 \section{For-Loops}
+\begin{verbatim}
+Usage:
+  \foreach \variable in {list of values}{
+    \commands ;
+  }
+Example:
+  \begin{tikzpicture}
+    \foreach \x in {-0.5cm,0cm,0.5cm}{
+      \draw[red,very thick] (\x,-5pt) -- (\x,5pt);
+    }
+    \foreach \y in {-0.5cm,0cm,0.5cm}{
+      \draw[blue,very thick] (1cm,\y) -- (1.5cm,\y);
+    }
+    \foreach \x in {0,...,9}{
+      \draw[green,very thick] (\x,-1) circle (0.4cm);
+    }
+    \foreach \x in {2,2.5,...,4}{
+      \draw[purple,very thick] (\x cm,-3pt) -- (\x cm,3pt);
+    }
+  \end{tikzpicture}
+\end{verbatim}
+
+\begin{tikzpicture}
+  \foreach \x in {-0.5cm,0cm,0.5cm}{
+    \draw[red,very thick] (\x,-5pt) -- (\x,5pt);
+  }
+  \foreach \y in {-0.5cm,0cm,0.5cm}{
+    \draw[blue,very thick] (1cm,\y) -- (1.5cm,\y);
+  }
+  \foreach \x in {0,...,9}{
+    \draw[green,very thick] (\x,-1) circle (0.4cm);
+  }
+  \foreach \x in {2,2.5,...,4}{
+    \draw[purple,very thick] (\x cm,-3pt) -- (\x cm,3pt);
+  }
+\end{tikzpicture}
+
+\begin{verbatim}
+  \begin{tikzpicture}
+    \foreach \x in {1,2,...,5,7,8,...,12}{
+      \foreach \y in {1,...,5}{
+        \draw (\x,\y) +(-0.5,-0.5) rectangle +(0.5,0.5);
+        \draw (\x,\y) node{\x,\y};
+      }
+    }
+  \end{tikzpicture}
+\end{verbatim}
+
+\begin{tikzpicture}
+  \foreach \x in {1,2,...,5,7,8,...,12}{
+		\foreach \y in {1,...,5}{
+			\draw (\x,\y) +(-0.5,-0.5) rectangle +(0.5,0.5);
+			\draw (\x,\y) node{\x,\y};
+		}
+	}
+\end{tikzpicture}
+
+% \begin{tikzpicture}
+%   \foreach \x in {-1cm,-0.5cm,1cm}
+
+%   \foreach \x in {1,2,3} {$x=\x, $}
+% \end{tikzpicture}
 
 \section{Nodes}
 \begin{tikzpicture}
