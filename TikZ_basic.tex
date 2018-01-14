@@ -714,4 +714,28 @@ Example:
 	\draw (A) node[below right] {$A$} -- (B) node[below left] {$B$}  -- (C) node[above right] {$C$};
 \end{tikzpicture}
 
+
+\section{Trangency}
+\begin{verbatim}
+Usage:
+  \draw (x1,y1) to [out=degree1,in=degree2] (x2,y2);
+
+Example:
+  \begin{tikzpicture}
+    \draw [help lines] (0,0) grid (4,4);
+    \draw [<->] (5,0) -- (0,0) -- (0,5);
+    \draw (3,0) -- (0,3);
+    \draw [dashed, ultra thick] (0.5,3.5) to [out=280,in=135] (1.5,1.5);
+    \draw [dashed, ultra thick] (1.5,1.5) to [out=315,in=170] (3.5,0.5);
+  \end{tikzpicture}
+\end{verbatim}
+
+\begin{tikzpicture}
+	\draw [help lines] (0,0) grid (4,4);
+	\draw [<->] (5,0) -- (0,0) -- (0,5);
+	\draw (3,0) -- (0,3);
+	\draw [dashed, ultra thick] (0.5,3.5) to [out=280,in=135] (1.5,1.5);
+	\draw [dashed, ultra thick] (1.5,1.5) to [out=315,in=170] (3.5,0.5);
+\end{tikzpicture}
+
 \end{document}
